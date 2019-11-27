@@ -179,6 +179,7 @@ MonoBehaviour:
     type: 3}
   mosseMassime: 12
   abilitato: 1
+  contatoreAzzerato: 0
 --- !u!114 &25385517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53c06fb553f030479935b3cb6239b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripleEffect: {fileID: 0}
   timer: {fileID: 113937126}
   canvas: {fileID: 130220490}
   prefabPos: {fileID: 8358216759615137937, guid: 47f4f207ed9ab2447b2661e7a3b44068,

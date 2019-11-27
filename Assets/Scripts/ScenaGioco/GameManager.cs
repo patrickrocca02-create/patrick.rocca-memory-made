@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log((tessere[0].transform.localPosition.x + 700) / 1400 + " " + (tessere[0].transform.localPosition.y + 310)/700);
+        //Debug.Log((tessere[0].transform.localPosition.x + 700) / 1400 + " " + (tessere[0].transform.localPosition.y + 310)/700);
     }
     void Start()
     {
@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
         nGirate = 0;
 
         creaTessereNoGrid();
-
         assegnaTextureTessere(LevelManager.level);
 
         //contatore
@@ -81,8 +80,11 @@ public class GameManager : MonoBehaviour
     {
         Sprite[] textureFrontali = Resources.LoadAll<Sprite>(cartelleImmaginiLVL[lvl-1] + "/tessere");
         Sprite[] nomi = Resources.LoadAll<Sprite>(cartelleImmaginiLVL[lvl - 1] + "/nomi");
-        for (int i = 0; i < tessere.Length; i++)
+        Sprite[] dietro = Resources.LoadAll<Sprite>("gioco/schiene");
+        for (int i = 0; i < tessere.Length; i++) {
             tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = nomi[tessere[i].GetComponent<tessera>().ID];
+            tessere[i].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[lvl - 1];
+        }
         if (lvl < 3)
         {
             foreach (GameObject tessera in tessere)
@@ -98,8 +100,9 @@ public class GameManager : MonoBehaviour
             }
             if (lvl == 4)
             {
-                for(int i = 0; i < tessere.Length; i+=2)
+                for (int i = 0; i < tessere.Length; i += 2) {
                     tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = nomi[tessere[i].GetComponent<tessera>().ID];
+                }
             }
         }
 
@@ -282,7 +285,9 @@ public class GameManager : MonoBehaviour
         }
 
         Animation anim = tessere[i].GetComponent<Animation>();
-        anim.RemoveClip("muoviAlCentro");
+        if (anim.GetClip("muoviAlCentro") != null) {
+            anim.RemoveClip("muoviAlCentro");
+        }
         
         AnimationCurve curve;
         AnimationClip clip = new AnimationClip();
