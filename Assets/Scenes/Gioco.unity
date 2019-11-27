@@ -179,6 +179,7 @@ MonoBehaviour:
     type: 3}
   mosseMassime: 12
   abilitato: 1
+  contatoreAzzerato: 0
 --- !u!114 &25385517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +626,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -640,6 +642,84 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd28de2d65ecb934c9d5e889ae49c16c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveform:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5035248
+      inSlope: 4.744721
+      outSlope: 4.744721
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.08333333
+      value: 0.89891815
+      inSlope: 0.021868944
+      outSlope: 0.021868944
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1690333
+      value: 0.49604404
+      inSlope: -2.9948928
+      outSlope: -2.9948928
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.040078145
+    - serializedVersion: 3
+      time: 0.21275094
+      value: 0.18697655
+      inSlope: -0.07467487
+      outSlope: -0.07467487
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.344589
+      value: 0.5081645
+      inSlope: 0.07702208
+      outSlope: 0.07702208
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.26980424
+    - serializedVersion: 3
+      time: 0.4791565
+      value: 0.505661
+      inSlope: -0.018604152
+      outSlope: -0.018604152
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  refractionStrength: 0.5
+  reflectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  reflectionStrength: 1
+  waveSpeed: 2
+  dropInterval: 0.5
+  shader: {fileID: 4800000, guid: d88332c518ecad046b0f85e5eddf3b94, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1220,9 +1300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53c06fb553f030479935b3cb6239b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripleEffect: {fileID: 0}
   timer: {fileID: 113937126}
   canvas: {fileID: 130220490}
+  cam: {fileID: 519420028}
   prefabPos: {fileID: 8358216759615137937, guid: 47f4f207ed9ab2447b2661e7a3b44068,
     type: 3}
   posizioni:
@@ -1265,6 +1345,7 @@ MonoBehaviour:
   bottoneMescola: {fileID: 1442773154}
   animScopri: scopri
   animCopri: copri
+  animIndovinata: copiaIndovinata
   contatoreMosse: {fileID: 25385516}
 --- !u!4 &1687551488
 Transform:

@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
 
     public static bool vinto = false;
 
-    //griglie e tessere
-    public GameObject prefabPos;
+	public GameObject cam;
+
+	//griglie e tessere
+	public GameObject prefabPos;
     public GameObject[] posizioni = new GameObject[12];
     public GameObject grigliaPos;
 
@@ -43,15 +45,16 @@ public class GameManager : MonoBehaviour
     //nomi animazioni
     public string animScopri;
     public string animCopri;
+	public string animIndovinata;
 
-    //contatore mosse
-    public contatore contatoreMosse;
+	//contatore mosse
+	public contatore contatoreMosse;
 
     float secondiSbagliate;
 
     private void Update()
     {
-        Debug.Log((tessere[0].transform.localPosition.x + 700) / 1400 + " " + (tessere[0].transform.localPosition.y + 310)/700);
+        //Debug.Log((tessere[0].transform.localPosition.x + 700) / 1400 + " " + (tessere[0].transform.localPosition.y + 310)/700);
     }
     void Start()
     {
@@ -152,10 +155,11 @@ public class GameManager : MonoBehaviour
             //disabilità il bottone
             tessera.buttonTorso.interactable = false;
             tessera.buttonFaccia.interactable = true;
-            
-            tessera.anim.Play(animScopri);
 
-            tessera.girata = true;
+			tessera.anim.Play(animScopri);
+			
+
+			tessera.girata = true;
 
             if (nGirate == 0)
             {
@@ -168,17 +172,19 @@ public class GameManager : MonoBehaviour
                 nGirate = 2;
                 if (tessera != tessera1 && tessera.equals(tessera1))
                 {
-                    //animazione in cui appare il testo
-                    //Vector3 pos1 = tessera.gameObject.transform.localPosition;
-                    //Vector3 pos2 = tessera1.gameObject.transform.localPosition;
-                    //tessera1.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
-                    //tessera.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
+                    
+
                     nGirate = 0;
                     tessera.indovinata = true;
                     tessera1.indovinata = true;
                     nCoppieIndovinate++;
                     StartCoroutine(Wait(tessera, tessera1));
-                    if (nCoppieIndovinate == nCoppie)
+					
+					//gestione effetti enfasi
+					StartCoroutine(enfasiCoppia(tessera, tessera1));
+					
+
+					if (nCoppieIndovinate == nCoppie)
                     {
                         vinto = true;
                         timer.StartTimer();
@@ -197,6 +203,21 @@ public class GameManager : MonoBehaviour
         tessera1.GetComponentInChildren<Animator>().SetBool("Indovinata",true);
         StopCoroutine(Wait(tessera, tessera1));
     }
+
+	IEnumerator enfasiCoppia(tessera tessera, tessera tessera1) {
+		yield return new WaitForSeconds(1);
+		tessera.anim.Play(animIndovinata);
+		tessera1.anim.Play(animIndovinata);
+
+		yield return new WaitForSeconds(1f);
+
+		//animazione in cui appare il testo
+		Vector3 pos1 = tessera.gameObject.transform.localPosition;
+		Vector3 pos2 = tessera1.gameObject.transform.localPosition;
+		cam.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
+		cam.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
+
+	}
 
     IEnumerator playAndWaitForAnim(tessera tessera2) {
         
