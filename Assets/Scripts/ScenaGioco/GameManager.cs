@@ -208,6 +208,7 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1);
 		tessera.anim.Play(animIndovinata);
 		tessera1.anim.Play(animIndovinata);
+		
 
 		yield return new WaitForSeconds(1f);
 

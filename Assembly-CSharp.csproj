@@ -77,7 +77,9 @@
     <Compile Include="Assets\Scripts\ScenaGioco\tornaAlMenu.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\VideoManager.cs" />
+    <Compile Include="Assets\Shining Coins\ShiningItem.cs" />
     <None Include="Assets\Scripts\ScenaGioco\RippleEffect.shader" />
+    <None Include="Assets\Shining Coins\Shining Items.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>S:/Projects/Unity/ProgettoMade/memory-made/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
