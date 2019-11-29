@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Timer timer;
     //canvas
     public Canvas canvas;
-
+	public GameObject cam;
     public static bool vinto = false;
 
     //griglie e tessere
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     //variabile che conta il numero di carte girate
     public int nGirate = 0;
+	public string animIndovinata;
 
     //prima tessera girata
     private tessera tessera1;
@@ -180,7 +181,8 @@ public class GameManager : MonoBehaviour
                     tessera.indovinata = true;
                     tessera1.indovinata = true;
                     nCoppieIndovinate++;
-                    StartCoroutine(Wait(tessera, tessera1));
+                    StartCoroutine(Wait(tessera, tessera1));					
+					StartCoroutine(enfasiCoppia(tessera, tessera1));
                     if (nCoppieIndovinate == nCoppie)
                     {
                         vinto = true;
@@ -440,5 +442,22 @@ public class GameManager : MonoBehaviour
         timer.StartTimer();
         StopCoroutine(Sconfitta());
     }
+	
+	IEnumerator enfasiCoppia(tessera tessera, tessera tessera1) {
+		yield return new WaitForSeconds(1);
+		tessera.anim.Play(animIndovinata);
+		tessera1.anim.Play(animIndovinata);
+		
+
+		yield return new WaitForSeconds(1f);
+
+		//animazione in cui appare il testo
+		Vector3 pos1 = tessera.gameObject.transform.localPosition;
+		Vector3 pos2 = tessera1.gameObject.transform.localPosition;
+		cam.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
+		cam.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
+
+	}
+
 }
 

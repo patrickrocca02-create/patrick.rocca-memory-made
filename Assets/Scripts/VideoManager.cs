@@ -1,12 +1,17 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class VideoManager : MonoBehaviour
 {
     public VideoClip vinto;
     public VideoClip perso;
     public VideoPlayer video;
-    void Start() {
+    public GameObject returnButton;
+    public AnimationClip clip;
+
+    private void Awake() {
         if (GameManager.vinto) {
             video.clip = vinto;
         }
@@ -14,8 +19,16 @@ public class VideoManager : MonoBehaviour
             video.clip = perso;
         }
 
-        if(!video.isPlaying) {
-            video.Play();
-        }
+        StartCoroutine(ShowButton());
+        
+    }
+
+    IEnumerator ShowButton() {
+        yield return new WaitForSeconds((float) video.clip.length);
+        video.Pause();
+        
+        clip.legacy = true;
+        returnButton.GetComponent<Animation>().Play("ComparsaBottone");
+        StopCoroutine(ShowButton());
     }
 }

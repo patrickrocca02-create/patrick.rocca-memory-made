@@ -17,23 +17,33 @@ public class RippleEffect : MonoBehaviour
 		new Keyframe(0.99f, 0.50f, 0, 0)
 	);
 
+
+
 	[Range(0.01f, 1.0f)]
-	public float refractionStrength = 0.5f;
+	public float refractionStrength;
 
 	public Color reflectionColor = Color.gray;
 
 	[Range(0.01f, 1.0f)]
-	public float reflectionStrength = 1.0f;
+	public float reflectionStrength;
 
 	[SerializeField]
-	public float waveSpeed = 2.0f;
+	public float waveSpeed;
 
 
 	[Range(0.0f, 2.0f)]
-	public float dropInterval = 0.5f;
+	public float dropInterval;
 
 	[SerializeField]
 	Shader shader;
+
+	public void inizialize()
+	{
+		refractionStrength = 0.05f;
+		reflectionStrength = 0.05f;
+		waveSpeed = 3;
+		dropInterval = 0.1f;
+	}
 
 	class Droplet
 	{
@@ -83,6 +93,7 @@ public class RippleEffect : MonoBehaviour
 
 	void Awake()
 	{
+		inizialize();
 		droplets = new Droplet[3];
 		droplets[0] = new Droplet();
 		droplets[1] = new Droplet();
@@ -131,7 +142,7 @@ public class RippleEffect : MonoBehaviour
 
 	IEnumerator Shake (float duration, float magnitude)
 	{
-		Debug.Log("shake");
+		//Debug.Log("shake");
 		Vector3 originalPos = transform.localPosition;
 		float elapsed = 0.0f;
 

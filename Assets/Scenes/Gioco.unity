@@ -177,7 +177,7 @@ MonoBehaviour:
   gameManager: {fileID: 1687551487}
   prefabMossa: {fileID: 7384932582582524981, guid: 7f24c8ac9714dbd4aa76a33bc5aa8809,
     type: 3}
-  mosseMassime: 12
+  mosseMassime: 8
   abilitato: 1
   contatoreAzzerato: 0
 --- !u!114 &25385517
@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -641,6 +642,129 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c4e775c9d43484984354fd56bc15de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveform:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.05
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.15
+      value: 0.1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.8
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.35
+      value: 0.3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.45
+      value: 0.6
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.55
+      value: 0.4
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.65
+      value: 0.55
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.75
+      value: 0.46
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.85
+      value: 0.52
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  refractionStrength: 0
+  reflectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  reflectionStrength: 0
+  waveSpeed: 0
+  dropInterval: 0
+  shader: {fileID: 4800000, guid: e1d5442505e515f4daf8dcf2e36ccefe, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1223,6 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 113937126}
   canvas: {fileID: 130220490}
+  cam: {fileID: 519420028}
   prefabPos: {fileID: 8358216759615137937, guid: 47f4f207ed9ab2447b2661e7a3b44068,
     type: 3}
   posizioni:
@@ -1262,6 +1387,7 @@ MonoBehaviour:
   - tessereLVL4
   popUpSpiegazione: {fileID: 0}
   nGirate: 0
+  animIndovinata: copiaIndovinata
   bottoneMescola: {fileID: 1442773154}
   animScopri: scopri
   animCopri: copri
@@ -1538,7 +1664,7 @@ PrefabInstance:
     - target: {fileID: 8714672330416856353, guid: 31271fd352a53dc4eb2dad820e44fd97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 151.5
       objectReference: {fileID: 0}
     - target: {fileID: 8714672330416856353, guid: 31271fd352a53dc4eb2dad820e44fd97,
         type: 3}
@@ -1548,7 +1674,7 @@ PrefabInstance:
     - target: {fileID: 8714672330416856353, guid: 31271fd352a53dc4eb2dad820e44fd97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 900
+      value: 1203
       objectReference: {fileID: 0}
     - target: {fileID: 8714672330416856353, guid: 31271fd352a53dc4eb2dad820e44fd97,
         type: 3}
