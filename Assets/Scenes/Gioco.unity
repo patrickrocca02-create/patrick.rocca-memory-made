@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -544,7 +544,7 @@ PrefabInstance:
     - target: {fileID: 5209504585640225923, guid: 544d40769068e3640b782ddd001eb7a8,
         type: 3}
       propertyPath: seconds
-      value: 309
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5209504585640225920, guid: 544d40769068e3640b782ddd001eb7a8,
         type: 3}
@@ -1019,7 +1019,6 @@ GameObject:
   - component: {fileID: 1000422858}
   - component: {fileID: 1000422857}
   - component: {fileID: 1000422856}
-  - component: {fileID: 1000422859}
   - component: {fileID: 1000422860}
   m_Layer: 5
   m_Name: BottoneMenu
@@ -1137,18 +1136,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000422854}
   m_CullTransparentMesh: 0
---- !u!114 &1000422859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000422854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602d6f4dbf0e75a418b01314f42a9582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1000422860
 Animator:
   serializedVersion: 3
@@ -1348,6 +1335,11 @@ MonoBehaviour:
   timer: {fileID: 113937126}
   canvas: {fileID: 130220490}
   cam: {fileID: 519420028}
+  materialiTessere:
+  - {fileID: 2100000, guid: 71a6d77e1d07cd741adeee7840314faf, type: 2}
+  - {fileID: 2100000, guid: ddffa8116551f0e45947af10af0d5201, type: 2}
+  - {fileID: 2100000, guid: 8c4d61c1c4ec7c04f8c64fe339a470c4, type: 2}
+  - {fileID: 2100000, guid: e545a883c93cbb7438aed17be8d81017, type: 2}
   prefabPos: {fileID: 8358216759615137937, guid: 47f4f207ed9ab2447b2661e7a3b44068,
     type: 3}
   posizioni:

@@ -15,6 +15,7 @@ public class tessera : MonoBehaviour
     public Button buttonTorso;
     public Button buttonFaccia;
 
+    public bool nome = false;
     public void Start()
     {
         //acquisizione di tutti parametri

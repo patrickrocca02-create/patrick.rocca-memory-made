@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 	public GameObject cam;
     public static bool vinto = false;
 
+    //materiali tessere
+    public Material[] materialiTessere = new Material[4];
+
     //griglie e tessere
     public GameObject prefabPos;
     public GameObject[] posizioni = new GameObject[12];
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        vinto = false;
         nCoppieIndovinate = 0;
         nCoppie = tessere.Length / 2;
         nGirate = 0;
@@ -85,6 +89,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < tessere.Length; i++) {
             tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = nomi[tessere[i].GetComponent<tessera>().ID];
             tessere[i].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[lvl - 1];
+            tessere[i].GetComponent<MeshRenderer>().material = materialiTessere[LevelManager.level - 1];
         }
         if (lvl < 3)
         {
@@ -102,7 +107,7 @@ public class GameManager : MonoBehaviour
             if (lvl == 4)
             {
                 for (int i = 0; i < tessere.Length; i += 2) {
-                    tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = nomi[tessere[i].GetComponent<tessera>().ID];
+                    tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = textureFrontali[tessere[i].GetComponent<tessera>().ID*2];
                 }
             }
         }
@@ -198,8 +203,16 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator Wait(tessera tessera, tessera tessera1) {
         yield return new WaitForSeconds(tessera.anim[animScopri].length);
-        tessera.GetComponentInChildren<Animator>().SetBool("Indovinata",true);
-        tessera1.GetComponentInChildren<Animator>().SetBool("Indovinata",true);
+        
+        if(LevelManager.level > 2)
+        {
+            tessera.GetComponentInChildren<Animator>().SetBool("Indovinata", true);
+            //tessera1.GetComponentInChildren<Animator>().SetBool("Indovinta", true);
+        }
+        else 
+        {
+            tessera1.GetComponentInChildren<Animator>().SetBool("Indovinata", true);
+        }
         StopCoroutine(Wait(tessera, tessera1));
     }
 

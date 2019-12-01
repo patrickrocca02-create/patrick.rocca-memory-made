@@ -35,7 +35,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/FineLivello.unity:
@@ -60,25 +59,25 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9704}
     - Class: 114
-      Script: {instanceID: 9948}
+      Script: {instanceID: 9950}
     - Class: 114
-      Script: {instanceID: 10222}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10308}
+      Script: {instanceID: 10310}
     - Class: 114
-      Script: {instanceID: 10446}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10906}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 11918}
+      Script: {instanceID: 11920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -127,39 +126,37 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9704}
     - Class: 114
-      Script: {instanceID: 9948}
+      Script: {instanceID: 9950}
     - Class: 114
-      Script: {instanceID: 10016}
-    - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10018}
     - Class: 114
       Script: {instanceID: 10222}
     - Class: 114
-      Script: {instanceID: 10362}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10446}
+      Script: {instanceID: 10364}
     - Class: 114
-      Script: {instanceID: 10566}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10906}
+      Script: {instanceID: 10524}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10570}
     - Class: 114
-      Script: {instanceID: 11160}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 11414}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11164}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11918}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 17348}
+      Script: {instanceID: 11920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -204,35 +201,35 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9704}
     - Class: 114
-      Script: {instanceID: 9744}
-    - Class: 114
-      Script: {instanceID: 9838}
+      Script: {instanceID: 9746}
     - Class: 114
       Script: {instanceID: 9840}
     - Class: 114
-      Script: {instanceID: 9910}
+      Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 9938}
+      Script: {instanceID: 9912}
     - Class: 114
-      Script: {instanceID: 9948}
+      Script: {instanceID: 9940}
     - Class: 114
-      Script: {instanceID: 10158}
+      Script: {instanceID: 9950}
     - Class: 114
-      Script: {instanceID: 10446}
+      Script: {instanceID: 10160}
     - Class: 114
-      Script: {instanceID: 10848}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10906}
+      Script: {instanceID: 10852}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 11288}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11918}
+      Script: {instanceID: 11474}
+    - Class: 114
+      Script: {instanceID: 11920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -273,23 +270,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9702}
+      Script: {instanceID: 9704}
     - Class: 114
-      Script: {instanceID: 9948}
+      Script: {instanceID: 9950}
     - Class: 114
-      Script: {instanceID: 10222}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10446}
+      Script: {instanceID: 10448}
     - Class: 114
-      Script: {instanceID: 10906}
+      Script: {instanceID: 10910}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10920}
     - Class: 114
-      Script: {instanceID: 11470}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 11918}
+      Script: {instanceID: 11920}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -569,7 +566,13 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: f78e692b680be7b9cfbe6b650b634e05
+      Hash: 29db09b9e75ffe2c2c710feb1afc7383
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RippleEffect
+  - hash:
+      serializedVersion: 2
+      Hash: 4bdc15dcfae8c6ab34b6594d5ceffda7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: tessera
@@ -743,7 +746,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: d7f550b34b99716fa5eb2dc34be76ef9
+      Hash: ed63b17cf60594025287058dfc4cb5a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -903,16 +906,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 29db09b9e75ffe2c2c710feb1afc7383
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: RippleEffect
   platform: 5
   scenePathNames:
   - Assets/Scenes/Index.unity
   - Assets/Scenes/SceltaLivello.unity
   - Assets/Scenes/Gioco.unity
   - Assets/Scenes/FineLivello.unity
-  playerPath: C:/Users/danie/Desktop/Gioco/x86/Memory.exe
+  playerPath: E:/Gioco/x86/Memory.exe
