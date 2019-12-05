@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public string[] cartelleImmaginiLVL = new string[4];
 
     //popup
-    public Image popUpSpiegazione;
+    public GameObject popUpTutorial;
 
     //contatore copie indovinate 
     private int nCoppie;
@@ -52,11 +52,8 @@ public class GameManager : MonoBehaviour
     public contatore contatoreMosse;
 
     float secondiSbagliate;
+    public float delayGiraTessera;
 
-    private void Update()
-    {
-        //Debug.Log((tessere[0].transform.localPosition.x + 700) / 1400 + " " + (tessere[0].transform.localPosition.y + 310)/700);
-    }
     void Start()
     {
         vinto = false;
@@ -77,7 +74,7 @@ public class GameManager : MonoBehaviour
             secondiSbagliate = 1.0f;
         }
         else {
-            secondiSbagliate = 2.0f;
+            secondiSbagliate = delayGiraTessera;
         }
     }
 
@@ -86,7 +83,8 @@ public class GameManager : MonoBehaviour
         Sprite[] textureFrontali = Resources.LoadAll<Sprite>(cartelleImmaginiLVL[lvl-1] + "/tessere");
         Sprite[] nomi = Resources.LoadAll<Sprite>(cartelleImmaginiLVL[lvl - 1] + "/nomi");
         Sprite[] dietro = Resources.LoadAll<Sprite>("gioco/schiene");
-        for (int i = 0; i < tessere.Length; i++) {
+        for (int i = 0; i < tessere.Length; i++) 
+        {
             tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = nomi[tessere[i].GetComponent<tessera>().ID];
             tessere[i].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[lvl - 1];
             tessere[i].GetComponent<MeshRenderer>().material = materialiTessere[LevelManager.level - 1];
@@ -100,14 +98,26 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
+
             for(int i = 0; i < tessere.Length; i++)
             {
                 tessere[i].GetComponentsInChildren<Button>()[1].GetComponent<Image>().sprite = textureFrontali[i];
             }
             if (lvl == 4)
             {
-                for (int i = 0; i < tessere.Length; i += 2) {
-                    tessere[i].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = textureFrontali[tessere[i].GetComponent<tessera>().ID*2];
+                for (int i = 0; i < tessere.Length; i += 2) 
+                {
+                    tessere[i+1].GetComponentInChildren<Animator>().gameObject.GetComponent<Image>().sprite = textureFrontali[tessere[i].GetComponent<tessera>().ID*2];
+                    tessere[i].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[4];
+                    tessere[i+1].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[5];
+                }
+            }
+            else 
+            {
+                for (int i = 0; i < tessere.Length; i += 2)
+                {
+                    tessere[i].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[2];
+                    tessere[i + 1].GetComponentsInChildren<Button>()[0].GetComponent<Image>().sprite = dietro[3];
                 }
             }
         }
@@ -177,11 +187,6 @@ public class GameManager : MonoBehaviour
                 nGirate = 2;
                 if (tessera != tessera1 && tessera.equals(tessera1))
                 {
-                    //animazione in cui appare il testo
-                    //Vector3 pos1 = tessera.gameObject.transform.localPosition;
-                    //Vector3 pos2 = tessera1.gameObject.transform.localPosition;
-                    //tessera1.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
-                    //tessera.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
                     nGirate = 0;
                     tessera.indovinata = true;
                     tessera1.indovinata = true;
@@ -207,12 +212,13 @@ public class GameManager : MonoBehaviour
         if(LevelManager.level > 2)
         {
             tessera.GetComponentInChildren<Animator>().SetBool("Indovinata", true);
-            //tessera1.GetComponentInChildren<Animator>().SetBool("Indovinta", true);
+            tessera1.GetComponentInChildren<Animator>().SetBool("Indovinata", true);
         }
         else 
         {
             tessera1.GetComponentInChildren<Animator>().SetBool("Indovinata", true);
         }
+        
         StopCoroutine(Wait(tessera, tessera1));
     }
 
@@ -369,11 +375,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator mescolamentoIniziale()
     {
+        popUpTutorial.GetComponent<Animation>().Play("animTutorial");
+        yield return new WaitForSeconds(popUpTutorial.GetComponent<Animation>().GetClip("animTutorial").length);
         for (int i = 0; i < tessere.Length; i++)
         {
             tessere[i].GetComponent<Animation>().Play("scopri");
         }
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(2.0f);
         for(int i = 0; i < tessere.Length; i++)
         {
             tessere[i].GetComponent<Animation>().Play("copri");
@@ -450,7 +459,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(tessere[0].GetComponent<tessera>().anim.GetClip("scopri").length);
             coppieDaGirare[i].GetComponentInChildren<Animator>().SetTrigger("Indovinata");
             coppieDaGirare[i + 1].GetComponentInChildren<Animator>().SetTrigger("Indovinata");
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(delayGiraTessera);
         }
         timer.StartTimer();
         StopCoroutine(Sconfitta());

@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 187348203}
   - component: {fileID: 187348202}
   - component: {fileID: 187348204}
+  - component: {fileID: 187348205}
   m_Layer: 5
   m_Name: ImgTutorial
   m_TagString: Untagged
@@ -464,6 +465,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0eecf23427b011d4a9d249dbea25d9bd, type: 3}
   - {fileID: 21300000, guid: 43115ab042fef2745a7fb5c398c8587b, type: 3}
   - {fileID: 21300000, guid: 82d6e4b85d83e514ca38906c1361c086, type: 3}
+--- !u!111 &187348205
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187348200}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: ab02b1832ecc3d04da8e3a1f68035993, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &215628887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1081,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1212,7 +1229,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1337,9 +1354,9 @@ MonoBehaviour:
   cam: {fileID: 519420028}
   materialiTessere:
   - {fileID: 2100000, guid: 71a6d77e1d07cd741adeee7840314faf, type: 2}
-  - {fileID: 2100000, guid: ddffa8116551f0e45947af10af0d5201, type: 2}
-  - {fileID: 2100000, guid: 8c4d61c1c4ec7c04f8c64fe339a470c4, type: 2}
   - {fileID: 2100000, guid: e545a883c93cbb7438aed17be8d81017, type: 2}
+  - {fileID: 2100000, guid: 8c4d61c1c4ec7c04f8c64fe339a470c4, type: 2}
+  - {fileID: 2100000, guid: ddffa8116551f0e45947af10af0d5201, type: 2}
   prefabPos: {fileID: 8358216759615137937, guid: 47f4f207ed9ab2447b2661e7a3b44068,
     type: 3}
   posizioni:
@@ -1356,7 +1373,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   grigliaPos: {fileID: 215628887}
-  prefabTessera: {fileID: 8866859882189854136, guid: f47e92f13b142774a83f41dae05cd39d,
+  prefabTessera: {fileID: 458102097989241678, guid: 7b09a618ca7dc0b49bd25cc98d36409b,
     type: 3}
   tessere:
   - {fileID: 0}
@@ -1377,13 +1394,14 @@ MonoBehaviour:
   - tessereLVL2
   - tessereLVL3
   - tessereLVL4
-  popUpSpiegazione: {fileID: 0}
+  popUpTutorial: {fileID: 187348200}
   nGirate: 0
   animIndovinata: copiaIndovinata
   bottoneMescola: {fileID: 1442773154}
   animScopri: scopri
   animCopri: copri
   contatoreMosse: {fileID: 25385516}
+  delayGiraTessera: 1.3
 --- !u!4 &1687551488
 Transform:
   m_ObjectHideFlags: 0

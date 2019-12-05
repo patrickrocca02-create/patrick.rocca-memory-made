@@ -312,7 +312,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7529412, g: 0.90588236, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -700,6 +700,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Video
       objectReference: {fileID: 0}
+    - target: {fileID: 1751002617971335508, guid: 398674a2169035b4097f03563f46874d,
+        type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 643449982}
+    - target: {fileID: 1751002617971335508, guid: 398674a2169035b4097f03563f46874d,
+        type: 3}
+      propertyPath: m_Looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751002617971335508, guid: 398674a2169035b4097f03563f46874d,
+        type: 3}
+      propertyPath: m_SkipOnDrop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1751002617971335511, guid: 398674a2169035b4097f03563f46874d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -753,16 +768,6 @@ PrefabInstance:
     - target: {fileID: 1751002617971335511, guid: 398674a2169035b4097f03563f46874d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1751002617971335508, guid: 398674a2169035b4097f03563f46874d,
-        type: 3}
-      propertyPath: m_TargetCamera
-      value: 
-      objectReference: {fileID: 643449982}
-    - target: {fileID: 1751002617971335508, guid: 398674a2169035b4097f03563f46874d,
-        type: 3}
-      propertyPath: m_Looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -895,7 +900,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.50980395}
