@@ -470,10 +470,8 @@ public class GameManager : MonoBehaviour
 		tessera.anim.Play(animIndovinata);
 		tessera1.anim.Play(animIndovinata);
 		
+		yield return new WaitForSeconds(1.0f);
 
-		yield return new WaitForSeconds(1f);
-
-		//animazione in cui appare il testo
 		Vector3 pos1 = tessera.gameObject.transform.localPosition;
 		Vector3 pos2 = tessera1.gameObject.transform.localPosition;
 		cam.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);

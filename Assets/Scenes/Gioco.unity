@@ -1396,7 +1396,7 @@ MonoBehaviour:
   - tessereLVL4
   popUpTutorial: {fileID: 187348200}
   nGirate: 0
-  animIndovinata: copiaIndovinata
+  animIndovinata: coppiaIndovinata2
   bottoneMescola: {fileID: 1442773154}
   animScopri: scopri
   animCopri: copri
