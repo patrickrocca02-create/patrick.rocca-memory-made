@@ -757,7 +757,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: bf69bc85158511aa3868a729fc77d206
+      Hash: be378d3fc648b3b77b09eb973df79dd6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

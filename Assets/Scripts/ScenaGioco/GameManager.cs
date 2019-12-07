@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
                     if (nCoppieIndovinate == nCoppie)
                     {
                         vinto = true;
+                        bottoneMescola.interactable = false;
                         timer.StartTimer();
                     }
                 }
@@ -375,14 +376,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator mescolamentoIniziale()
     {
-        popUpTutorial.GetComponent<Animation>().Play("animTutorial");
-        yield return new WaitForSeconds(popUpTutorial.GetComponent<Animation>().GetClip("animTutorial").length);
+        //yield return new WaitForSeconds(popUpTutorial.GetComponent<Animation>().GetClip("animTutorial").length);
         for (int i = 0; i < tessere.Length; i++)
         {
             tessere[i].GetComponent<Animation>().Play("scopri");
         }
-
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.3f);
+        popUpTutorial.GetComponent<Animation>().Play("animTutorial");
+        //popUpTutorial.GetComponentsInChildren<Animation>()[1].Play("animTutorialSfondo");
+        yield return new WaitForSeconds(2.3f);
         for(int i = 0; i < tessere.Length; i++)
         {
             tessere[i].GetComponent<Animation>().Play("copri");
