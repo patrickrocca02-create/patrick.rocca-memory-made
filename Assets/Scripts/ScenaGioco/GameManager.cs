@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     //popup
     public GameObject popUpTutorial;
+    public GameObject sfondoPopUpTutorial;
 
     //contatore copie indovinate 
     private int nCoppie;
@@ -379,6 +380,7 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.3f);
         popUpTutorial.GetComponent<Animation>().Play("animTutorial");
+        sfondoPopUpTutorial.GetComponent<Animation>().Play("animTutorialSfondo");
         //popUpTutorial.GetComponentsInChildren<Animation>()[1].Play("animTutorialSfondo");
         yield return new WaitForSeconds(2.3f);
         for(int i = 0; i < tessere.Length; i++)
