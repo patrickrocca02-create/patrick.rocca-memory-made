@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
-    public Timer timer;
+    public General inactivityTimer;
     //canvas
     public Canvas canvas;
 	public GameObject cam;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     //bottone mescolamento
     public Button bottoneMescola;
+    public Button returnButton;
 
     //nomi animazioni
     public string animScopri;
@@ -193,12 +195,6 @@ public class GameManager : MonoBehaviour
                     nCoppieIndovinate++;
                     StartCoroutine(Wait(tessera, tessera1));					
 					StartCoroutine(enfasiCoppia(tessera, tessera1));
-                    if (nCoppieIndovinate == nCoppie)
-                    {
-                        vinto = true;
-                        bottoneMescola.interactable = false;
-                        timer.StartTimer();
-                    }
                 }
                 else if(tessera != tessera1)
                 { 
@@ -429,9 +425,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Sconfitta()
     {
-        timer.ResetTimer();
+        inactivityTimer.Stop();
         int index = 0;
         int coppieRimaste = nCoppie - nCoppieIndovinate;
+        bottoneMescola.interactable = false;
+        returnButton.interactable = false;
         List<tessera> coppieDaGirare = new List<tessera>();
         while (coppieRimaste > 0 && index < tessere.Length)
         {
@@ -463,7 +461,7 @@ public class GameManager : MonoBehaviour
             coppieDaGirare[i + 1].GetComponentInChildren<Animator>().SetTrigger("Indovinata");
             yield return new WaitForSeconds(delayGiraTessera);
         }
-        timer.StartTimer();
+        SceneManager.LoadScene(3);
         StopCoroutine(Sconfitta());
     }
 	
@@ -478,8 +476,13 @@ public class GameManager : MonoBehaviour
 		Vector3 pos2 = tessera1.gameObject.transform.localPosition;
 		cam.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
 		cam.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
-
-	}
-
+        if (nCoppieIndovinate == nCoppie) {
+            bottoneMescola.interactable = false;
+            returnButton.interactable = false;
+            yield return new WaitForSeconds(tessera.anim.GetClip(animIndovinata).length+2f);
+            vinto = true;
+            SceneManager.LoadScene(3);
+        }
+    }
 }
 

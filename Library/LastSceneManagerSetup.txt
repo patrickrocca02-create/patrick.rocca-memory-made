@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Gioco.unity
+- path: Assets/Scenes/SceltaLivello.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -8,8 +8,8 @@ public class VideoManager : MonoBehaviour
     public VideoClip vinto;
     public VideoClip perso;
     public VideoPlayer video;
-    public GameObject returnButton;
-    public AnimationClip clip;
+    public Button returnButton;
+    public Button screenButton;
 
     private void Awake() {
         if (GameManager.vinto) {
@@ -27,8 +27,10 @@ public class VideoManager : MonoBehaviour
         yield return new WaitForSeconds((float) video.clip.length);
         video.Pause();
         
-        clip.legacy = true;
         returnButton.GetComponent<Animation>().Play("ComparsaBottone");
+        yield return new WaitForSeconds(returnButton.GetComponent<Animation>().GetClip("ComparsaBottone").length);
+        returnButton.interactable = true;
+        screenButton.interactable = true;
         StopCoroutine(ShowButton());
     }
 }

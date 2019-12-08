@@ -4,11 +4,21 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
     public static int level = 1;
+    public bool doInit = true;
 
-    public Animator anim;
+    private Animation anim;
+    
+    void Start() {
+        anim = GetComponent<Animation>();
+        if (doInit) {
+            anim.Play("Init");
+        }
+    }
+
     public void SceneTransition(int level) {
         LevelManager.level = level;
-        anim.SetTrigger("CambioScena");
+        anim.GetClip("Transizione").legacy = true;
+        anim.Play("Transizione");
     }
 
     public void LoadScene() {
