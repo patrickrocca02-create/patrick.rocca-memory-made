@@ -194,6 +194,11 @@ public class GameManager : MonoBehaviour
                     tessera.indovinata = true;
                     tessera1.indovinata = true;
                     nCoppieIndovinate++;
+                    if (nCoppieIndovinate == nCoppie)
+                    {
+                        bottoneMescola.interactable = false;
+                        returnButton.interactable = false;
+                    }
                     StartCoroutine(Wait(tessera, tessera1));					
 					StartCoroutine(enfasiCoppia(tessera, tessera1));
                 }
@@ -479,8 +484,6 @@ public class GameManager : MonoBehaviour
 		cam.GetComponent<RippleEffect>().Emit((pos1.x + 700) / 1400, (pos1.y + 310) / 700);
 		cam.GetComponent<RippleEffect>().Emit((pos2.x + 700) / 1400, (pos2.y + 310) / 700);
         if (nCoppieIndovinate == nCoppie) {
-            bottoneMescola.interactable = false;
-            returnButton.interactable = false;
             yield return new WaitForSeconds(tessera.anim.GetClip(animIndovinata).length+2f);
             vinto = true;
             SceneManager.LoadScene(3);
